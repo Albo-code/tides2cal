@@ -8,7 +8,7 @@ Python module using web spider to scrape tidal data and add *high* and *low*
 tide events to a Google calendar.
 
 Web scraper uses the `Scrapy`_ web scraping framework to get tidal data from
-`www.tideschart.com`_. Scraped data is saved to a `.json` file and used to
+`www.tideschart.com`_. Scrapped data is saved to a `.json` file and used to
 create Google calendar events for each *high* and *low* tide over the next
 7 days (number of days of tidal data avaiable on `www.tideschart.com`_).
 
@@ -29,8 +29,12 @@ Scrape tidal data
 =================
 In active Python virtual environment::
 
-   scrapy crawl tideschart -O data/tides_$(date -d "today" +"%Y-%m-%dT%H%M").json -a save_page=True
+   scrapy crawl tideschart -O data/tides_$(date -d "today" +"%Y-%m-%dT%H%M").json \
+   -a save_page=True
 
+Above stores scrapped data in .json file and also saves the `www.tideschart.com`_
+web page the data was obtained from as the ``-a save_page=True`` option was
+specified.
 
 .. toctree::
    :maxdepth: 2
