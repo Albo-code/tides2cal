@@ -15,6 +15,7 @@ import sys
 sys.path.insert(0, os.path.abspath('./../../'))
 sys.path.insert(1, os.path.abspath('./../../GetTides'))
 sys.path.insert(3, os.path.abspath('./../../GetTides/spiders'))
+sys.path.insert(1, os.path.abspath('./../../AddEvents'))
 
 
 # -- Project information -----------------------------------------------------
