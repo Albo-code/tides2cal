@@ -68,8 +68,189 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="add-cal-events">
-<h1>add_cal_events<a class="headerlink" href="#add-cal-events" title="Permalink to this heading"></a></h1>
+  <section id="module-add_cal_events">
+<span id="add-cal-events"></span><h1>add_cal_events<a class="headerlink" href="#module-add_cal_events" title="Permalink to this heading"></a></h1>
+<p>Read JSON file produced by tideschart scrapper and create the Google calendar
+tide events.</p>
+<p>The Google calendar interfacing code is modified version of example from
+<a class="reference external" href="https://developers.google.com/calendar/quickstart/python">https://developers.google.com/calendar/quickstart/python</a> and uses the
+Google client library for Python. This is installed using pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">plac</span> <span class="n">google</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="n">client</span> <span class="n">google</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">httplib2</span> <span class="n">google</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">oauthlib</span>
+</pre></div>
+</div>
+<p>On first execution of this module you will be prompted to grant access to only
+calendars owned by you. The Google authentication <em>scope</em> used by the modules is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">googleapis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">calendar</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">owned</span>
+</pre></div>
+</div>
+<p>The JSON file produced by the tideschart scrapper contains a list of dictionaries.</p>
+<p>The dictionary in index <code class="docutils literal notranslate"><span class="pre">[0]</span></code> of the list contains meta data about the scrape.
+This is used to create the tide calendar event <em>description</em> entry. E.g:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="p">{</span><span class="s1">&#39;meta_tide_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://tideschart.com/United-Kingdom/Scotland/</span>
+                                          <span class="n">Edinburgh</span><span class="o">/</span><span class="n">Dalgety</span><span class="o">-</span><span class="n">Bay</span><span class="o">-</span><span class="n">Beach</span><span class="s1">&#39;,</span>
+      <span class="s1">&#39;meta_tide_location&#39;</span><span class="p">:</span> <span class="s1">&#39;Dalgety Bay Beach&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;meta_scrape_time&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-10T21:36:02&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>In indices <code class="docutils literal notranslate"><span class="pre">[1]</span></code> to <code class="docutils literal notranslate"><span class="pre">[7]</span></code> are dictionaries containing the the scrapped data
+of the tides for the next 7 days, i.e. index <code class="docutils literal notranslate"><span class="pre">[1]</span></code> will contain the tide
+informaiton for the day the data was scraped, index <code class="docutils literal notranslate"><span class="pre">[7]</span></code> for the 7th day from
+the day the data was scrapped. E.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-10&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;scrape_day&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;td class=&quot;day&quot;&gt;10 Thu&lt;/td&gt;&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;scrape_tides&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;&lt;td class=&quot;tide-u&quot;&gt; 3:32am&lt;div&gt;&lt;i&gt;▲&lt;/i&gt; 5.28 m&lt;/div&gt;&lt;/td&gt;&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;&lt;td class=&quot;tide-d&quot;&gt; 9:11am&lt;div&gt;&lt;i&gt;▼&lt;/i&gt; 1.22 m&lt;/div&gt;&lt;/td&gt;&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;&lt;td class=&quot;tide-u&quot;&gt; 3:47pm&lt;div&gt;&lt;i&gt;▲&lt;/i&gt; 5.2 m&lt;/div&gt;&lt;/td&gt;&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;&lt;td class=&quot;tide-d&quot;&gt; 9:21pm&lt;div&gt;&lt;i&gt;▼&lt;/i&gt; 1.28 m&lt;/div&gt;&lt;/td&gt;&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>Index <code class="docutils literal notranslate"><span class="pre">[8]</span></code> contains a dictionary with the single key <code class="docutils literal notranslate"><span class="pre">tide_list</span></code> that is a
+list of dictionaries, each containing a tide’s details in correct format for a
+tide calendar event. E.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="p">{</span><span class="s1">&#39;tide_list&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;date_time&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-10T03:32:00&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;number&#39;</span><span class="p">:</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;is_high&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="s1">&#39;5.28m&#39;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="n">date_time</span><span class="s1">&#39;: &#39;</span><span class="mi">2021</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">10</span><span class="n">T09</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="s1">&#39;,</span>
+                     <span class="s1">&#39;number&#39;</span><span class="p">:</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;is_high&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                     <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="s1">&#39;1.22m&#39;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;date_time&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-10T15:47:00&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;number&#39;</span><span class="p">:</span> <span class="s1">&#39;3rd&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;is_high&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="s1">&#39;5.2m&#39;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;date_time&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-10T21:21:00&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;number&#39;</span><span class="p">:</span> <span class="s1">&#39;4th&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;is_high&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                     <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="s1">&#39;1.28m&#39;</span><span class="p">},</span>
+                    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Only data from list indices <code class="docutils literal notranslate"><span class="pre">[0]</span></code> and <code class="docutils literal notranslate"><span class="pre">[8]</span></code> are used to create the Google
+calendar tide events.</p>
+<p>All expample data shown above read from a tideschart scrapper JSON file and
+output when this module is called with <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">debug</span></code>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="add_cal_events.add_cal_tide_events">
+<span class="sig-prename descclassname"><span class="pre">add_cal_events.</span></span><span class="sig-name descname"><span class="pre">add_cal_tide_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">googleapiclient.discovery.Resource</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calendar_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_tide_events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#add_cal_events.add_cal_tide_events" title="Permalink to this definition"></a></dt>
+<dd><p>Add tide event to Google calendar if not already present in calendar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> (<em>Resource</em>) – The googleapiclient.discovery.Resource providing access to         user’s calendar.</p></li>
+<li><p><strong>calendar_id</strong> (<em>str</em>) – Google calendar id of calendar to retrieve tide time         events from.</p></li>
+<li><p><strong>new_tide_events</strong> (<em>list</em>) – List of new tide calendar events to be added to         the calendar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="add_cal_events.do_google_credentials">
+<span class="sig-prename descclassname"><span class="pre">add_cal_events.</span></span><span class="sig-name descname"><span class="pre">do_google_credentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token_json</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">googleapiclient.discovery.Resource</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#add_cal_events.do_google_credentials" title="Permalink to this definition"></a></dt>
+<dd><p>Do what is necessary to connect to user’s Google calender and return
+resource service used to access the calendar.
+If <code class="docutils literal notranslate"><span class="pre">token_json</span></code> does not exist or does not contain valid credentials a
+new window is opened prompting you to authorize access to your data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>token_json</strong> (<em>str</em>) – Name of file used to store or read from (if previously         created) the user’s access and refresh tokens.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>googleapiclient.discovery.Resource</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Resource</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="add_cal_events.get_cal_tide_times">
+<span class="sig-prename descclassname"><span class="pre">add_cal_events.</span></span><span class="sig-name descname"><span class="pre">get_cal_tide_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">googleapiclient.discovery.Resource</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calendar_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_days</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#add_cal_events.get_cal_tide_times" title="Permalink to this definition"></a></dt>
+<dd><p>From user’s Google calendar read all tide events occurring in the next
+num_days from today and return list containing their start time, i.e.
+the ‘tide time’ of the event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> (<em>Resource</em>) – The googleapiclient.discovery.Resource providing access to         user’s calendar.</p></li>
+<li><p><strong>calendar_id</strong> (<em>str</em>) – Google calendar id of calendar to retrieve tide time         events from.</p></li>
+<li><p><strong>num_days</strong> (<em>int</em>) – The number of days to read searching for all tide events.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of current tide event start times as strings in Google event         data time format.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="add_cal_events.get_new_tide_data">
+<span class="sig-prename descclassname"><span class="pre">add_cal_events.</span></span><span class="sig-name descname"><span class="pre">get_new_tide_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tide_times_in_cal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tide_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#add_cal_events.get_new_tide_data" title="Permalink to this definition"></a></dt>
+<dd><p>Return list of tide data dictionaries containing tides not already in the
+calendar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tide_times_in_cal</strong> (<em>list</em>) – List of tide times already in caledar, list         contains only the start time of the calendar event.</p></li>
+<li><p><strong>tide_data</strong> (<em>list</em>) – List of dictionaries containing latest tide data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of dictionaries containing data of new tides.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="add_cal_events.get_new_tide_events">
+<span class="sig-prename descclassname"><span class="pre">add_cal_events.</span></span><span class="sig-name descname"><span class="pre">get_new_tide_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scrape_meta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tide_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#add_cal_events.get_new_tide_events" title="Permalink to this definition"></a></dt>
+<dd><p>Return list of Google calendar events detailing new tide events to be added
+to the calender.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scrape_meta</strong> (<em>dict</em>) – Meta data about the scrape added to event descriptions.</p></li>
+<li><p><strong>tide_data</strong> (<em>list</em>) – List of dictionaries containing tide data for which Google         calendar events are to be created.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of Google calendar events containing tides to be added to the         calendar.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="add_cal_events.rm_old_tides">
+<span class="sig-prename descclassname"><span class="pre">add_cal_events.</span></span><span class="sig-name descname"><span class="pre">rm_old_tides</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tide_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#add_cal_events.rm_old_tides" title="Permalink to this definition"></a></dt>
+<dd><p>From tide_data remove all tides that are in the past in respect to time
+now.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tide_data</strong> (<em>list</em>) – List containing all tide data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of tide data containing only tides in the future.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-logging_helper">
 <span id="helper-modules"></span><h1>Helper modules<a class="headerlink" href="#module-logging_helper" title="Permalink to this heading"></a></h1>
@@ -114,7 +295,7 @@ will be logged.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, Albo-code.
-      <span class="lastupdated">Last updated on Monday 20 Jun 2022 at 21:40:34.
+      <span class="lastupdated">Last updated on Monday 20 Jun 2022 at 21:41:56.
       </span></p>
   </div>
 
