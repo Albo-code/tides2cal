@@ -71,7 +71,9 @@ html_last_updated_fmt = '%A %d %b %Y at %H:%M:%S'
 # some external dependencies are not met at build time and break the building
 # process. You may only specify the root package of the dependencies themselves
 # and omit the sub-modules:
-autodoc_mock_imports = ['scrapy']
+autodoc_mock_imports = ['scrapy', 'plac',
+                        'googleapiclient', 'google_auth_oauthlib',
+                        'google.oauth2']
 
 # -- sphinx.ext.linkcode
 # See https://www.sphinx-doc.org/en/master/usage/extensions/linkcode.html
