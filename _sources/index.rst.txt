@@ -41,6 +41,7 @@ specified.
    :caption: API:
 
    tideschart.rst
+   add_cal_events.rst
 
 Indices and tables
 ==================
