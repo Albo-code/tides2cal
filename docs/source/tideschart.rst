@@ -1,7 +1,7 @@
-tideschart
-==========
+GetTides.spiders.tideschart
+===========================
 
-.. automodule:: tideschart
+.. automodule:: GetTides.spiders.tideschart
    :members:
    :undoc-members:
    :show-inheritance:

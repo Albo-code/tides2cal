@@ -14,7 +14,6 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('./../../'))
 sys.path.insert(1, os.path.abspath('./../../GetTides'))
-sys.path.insert(3, os.path.abspath('./../../GetTides/spiders'))
 sys.path.insert(1, os.path.abspath('./../../AddEvents'))
 
 
@@ -59,6 +58,13 @@ html_theme = 'sphinx_rtd_theme'
 # bottom, using the given strftime() format. The empty string is equivalent to
 # '%b %d, %Y' (or a locale-dependent equivalent).
 html_last_updated_fmt = '%A %d %b %Y at %H:%M:%S'
+
+# If given, this must be the name of an image file (path relative to the
+# configuration directory) that is the favicon of the docs, or URL that points
+# an image file for the favicon. Modern browsers use this as the icon for tabs,
+# windows and bookmarks. It should be a Windows-style icon file (.ico), which
+# is 16x16 or 32x32 pixels large. Default: None.
+html_favicon = 'tides2cal_favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
