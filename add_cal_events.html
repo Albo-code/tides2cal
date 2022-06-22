@@ -4,9 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>add_cal_events &mdash; tides2cal 0.1 documentation</title>
+  <title>AddEvents.add_cal_events &mdash; tides2cal 0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/tides2cal_favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -19,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="tideschart" href="tideschart.html" /> 
+    <link rel="prev" title="GetTides.spiders.tideschart" href="tideschart.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,9 +40,12 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="tideschart.html">tideschart</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">add_cal_events</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-logging_helper">Helper modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tideschart.html">GetTides.spiders.tideschart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AddEvents.add_cal_events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#addevents-helper-modules">AddEvents helper modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-AddEvents.logging_helper">AddEvents.logging_helper</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -58,7 +62,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>add_cal_events</li>
+      <li>AddEvents.add_cal_events</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/add_cal_events.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -68,8 +72,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-add_cal_events">
-<span id="add-cal-events"></span><h1>add_cal_events<a class="headerlink" href="#module-add_cal_events" title="Permalink to this heading"></a></h1>
+  <section id="module-AddEvents.add_cal_events">
+<span id="addevents-add-cal-events"></span><h1>AddEvents.add_cal_events<a class="headerlink" href="#module-AddEvents.add_cal_events" title="Permalink to this heading"></a></h1>
 <p>Read JSON file produced by tideschart scrapper and create the Google calendar
 tide events.</p>
 <p>The Google calendar interfacing code is modified version of example from
@@ -131,8 +135,8 @@ calendar tide events.</p>
 <p>All expample data shown above read from a tideschart scrapper JSON file and
 output when this module is called with <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">debug</span></code>.</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="add_cal_events.add_cal_tide_events">
-<span class="sig-prename descclassname"><span class="pre">add_cal_events.</span></span><span class="sig-name descname"><span class="pre">add_cal_tide_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">googleapiclient.discovery.Resource</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calendar_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_tide_events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#add_cal_events.add_cal_tide_events" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="AddEvents.add_cal_events.add_cal_tide_events">
+<span class="sig-prename descclassname"><span class="pre">AddEvents.add_cal_events.</span></span><span class="sig-name descname"><span class="pre">add_cal_tide_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">googleapiclient.discovery.Resource</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calendar_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_tide_events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/AddEvents/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AddEvents.add_cal_events.add_cal_tide_events" title="Permalink to this definition"></a></dt>
 <dd><p>Add tide event to Google calendar if not already present in calendar.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -149,8 +153,8 @@ output when this module is called with <code class="docutils literal notranslate
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="add_cal_events.do_google_credentials">
-<span class="sig-prename descclassname"><span class="pre">add_cal_events.</span></span><span class="sig-name descname"><span class="pre">do_google_credentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token_json</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">googleapiclient.discovery.Resource</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#add_cal_events.do_google_credentials" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="AddEvents.add_cal_events.do_google_credentials">
+<span class="sig-prename descclassname"><span class="pre">AddEvents.add_cal_events.</span></span><span class="sig-name descname"><span class="pre">do_google_credentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token_json</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">googleapiclient.discovery.Resource</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/AddEvents/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AddEvents.add_cal_events.do_google_credentials" title="Permalink to this definition"></a></dt>
 <dd><p>Do what is necessary to connect to user’s Google calender and return
 resource service used to access the calendar.
 If <code class="docutils literal notranslate"><span class="pre">token_json</span></code> does not exist or does not contain valid credentials a
@@ -169,8 +173,8 @@ new window is opened prompting you to authorize access to your data.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="add_cal_events.get_cal_tide_times">
-<span class="sig-prename descclassname"><span class="pre">add_cal_events.</span></span><span class="sig-name descname"><span class="pre">get_cal_tide_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">googleapiclient.discovery.Resource</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calendar_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_days</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#add_cal_events.get_cal_tide_times" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="AddEvents.add_cal_events.get_cal_tide_times">
+<span class="sig-prename descclassname"><span class="pre">AddEvents.add_cal_events.</span></span><span class="sig-name descname"><span class="pre">get_cal_tide_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">googleapiclient.discovery.Resource</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calendar_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_days</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/AddEvents/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AddEvents.add_cal_events.get_cal_tide_times" title="Permalink to this definition"></a></dt>
 <dd><p>From user’s Google calendar read all tide events occurring in the next
 num_days from today and return list containing their start time, i.e.
 the ‘tide time’ of the event.</p>
@@ -192,8 +196,8 @@ the ‘tide time’ of the event.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="add_cal_events.get_new_tide_data">
-<span class="sig-prename descclassname"><span class="pre">add_cal_events.</span></span><span class="sig-name descname"><span class="pre">get_new_tide_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tide_times_in_cal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tide_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#add_cal_events.get_new_tide_data" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="AddEvents.add_cal_events.get_new_tide_data">
+<span class="sig-prename descclassname"><span class="pre">AddEvents.add_cal_events.</span></span><span class="sig-name descname"><span class="pre">get_new_tide_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tide_times_in_cal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tide_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/AddEvents/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AddEvents.add_cal_events.get_new_tide_data" title="Permalink to this definition"></a></dt>
 <dd><p>Return list of tide data dictionaries containing tides not already in the
 calendar.</p>
 <dl class="field-list simple">
@@ -213,8 +217,8 @@ calendar.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="add_cal_events.get_new_tide_events">
-<span class="sig-prename descclassname"><span class="pre">add_cal_events.</span></span><span class="sig-name descname"><span class="pre">get_new_tide_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scrape_meta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tide_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#add_cal_events.get_new_tide_events" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="AddEvents.add_cal_events.get_new_tide_events">
+<span class="sig-prename descclassname"><span class="pre">AddEvents.add_cal_events.</span></span><span class="sig-name descname"><span class="pre">get_new_tide_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scrape_meta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tide_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/AddEvents/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AddEvents.add_cal_events.get_new_tide_events" title="Permalink to this definition"></a></dt>
 <dd><p>Return list of Google calendar events detailing new tide events to be added
 to the calender.</p>
 <dl class="field-list simple">
@@ -234,8 +238,8 @@ to the calender.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="add_cal_events.rm_old_tides">
-<span class="sig-prename descclassname"><span class="pre">add_cal_events.</span></span><span class="sig-name descname"><span class="pre">rm_old_tides</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tide_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#add_cal_events.rm_old_tides" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="AddEvents.add_cal_events.rm_old_tides">
+<span class="sig-prename descclassname"><span class="pre">AddEvents.add_cal_events.</span></span><span class="sig-name descname"><span class="pre">rm_old_tides</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tide_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/AddEvents/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AddEvents.add_cal_events.rm_old_tides" title="Permalink to this definition"></a></dt>
 <dd><p>From tide_data remove all tides that are in the past in respect to time
 now.</p>
 <dl class="field-list simple">
@@ -252,13 +256,14 @@ now.</p>
 </dd></dl>
 
 </section>
-<section id="module-logging_helper">
-<span id="helper-modules"></span><h1>Helper modules<a class="headerlink" href="#module-logging_helper" title="Permalink to this heading"></a></h1>
-<p>Helper functions to assit with use of the <a class="reference internal" href="#python-logger">Python logger</a>.</p>
-<p><span class="target" id="python-logger">Python logger</span>: [<a class="reference external" href="https://docs.python.org/3/library/logging.html">https://docs.python.org/3/library/logging.html</a>]</p>
+<section id="addevents-helper-modules">
+<h1>AddEvents helper modules<a class="headerlink" href="#addevents-helper-modules" title="Permalink to this heading"></a></h1>
+<section id="module-AddEvents.logging_helper">
+<span id="addevents-logging-helper"></span><h2>AddEvents.logging_helper<a class="headerlink" href="#module-AddEvents.logging_helper" title="Permalink to this heading"></a></h2>
+<p>Helper functions to assit with use of the <a class="reference external" href="https://docs.python.org/3/library/logging.html">Python logger</a>.</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="logging_helper.setup_log">
-<span class="sig-prename descclassname"><span class="pre">logging_helper.</span></span><span class="sig-name descname"><span class="pre">setup_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'off'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/logging_helper.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#logging_helper.setup_log" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="AddEvents.logging_helper.setup_log">
+<span class="sig-prename descclassname"><span class="pre">AddEvents.logging_helper.</span></span><span class="sig-name descname"><span class="pre">setup_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'off'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/AddEvents/logging_helper.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AddEvents.logging_helper.setup_log" title="Permalink to this definition"></a></dt>
 <dd><p>Create a Python logger using specified logger name and log level.</p>
 <p>The given <cite>logger_name</cite> is passed in call to <cite>logging.getLogger</cite>, as detailed
 in this function’s documentation:</p>
@@ -283,19 +288,20 @@ will be logged.</p>
 </dd></dl>
 
 </section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="tideschart.html" class="btn btn-neutral float-left" title="tideschart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tideschart.html" class="btn btn-neutral float-left" title="GetTides.spiders.tideschart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, Albo-code.
-      <span class="lastupdated">Last updated on Monday 20 Jun 2022 at 21:41:56.
+      <span class="lastupdated">Last updated on Wednesday 22 Jun 2022 at 20:42:34.
       </span></p>
   </div>
 

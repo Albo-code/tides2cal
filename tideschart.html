@@ -4,9 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>tideschart &mdash; tides2cal 0.1 documentation</title>
+  <title>GetTides.spiders.tideschart &mdash; tides2cal 0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/tides2cal_favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -19,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="add_cal_events" href="add_cal_events.html" />
+    <link rel="next" title="AddEvents.add_cal_events" href="add_cal_events.html" />
     <link rel="prev" title="tides2cal documentation" href="index.html" /> 
 </head>
 
@@ -40,9 +41,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">tideschart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="add_cal_events.html">add_cal_events</a></li>
-<li class="toctree-l1"><a class="reference internal" href="add_cal_events.html#module-logging_helper">Helper modules</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GetTides.spiders.tideschart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add_cal_events.html">AddEvents.add_cal_events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add_cal_events.html#addevents-helper-modules">AddEvents helper modules</a></li>
 </ul>
 
         </div>
@@ -59,7 +60,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>tideschart</li>
+      <li>GetTides.spiders.tideschart</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tideschart.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -69,69 +70,69 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-tideschart">
-<span id="tideschart"></span><h1>tideschart<a class="headerlink" href="#module-tideschart" title="Permalink to this heading"></a></h1>
+  <section id="module-GetTides.spiders.tideschart">
+<span id="gettides-spiders-tideschart"></span><h1>GetTides.spiders.tideschart<a class="headerlink" href="#module-GetTides.spiders.tideschart" title="Permalink to this heading"></a></h1>
 <p>A spider to scrape tide times from <a class="reference external" href="http://tideschart.com/">http://tideschart.com/</a>.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="tideschart.OrdinalNum">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tideschart.</span></span><span class="sig-name descname"><span class="pre">OrdinalNum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tideschart.OrdinalNum" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="GetTides.spiders.tideschart.OrdinalNum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GetTides.spiders.tideschart.</span></span><span class="sig-name descname"><span class="pre">OrdinalNum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/GetTides/spiders/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GetTides.spiders.tideschart.OrdinalNum" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>Enumeration to provide easy access to ordinal numbers to identify a tide’s
 order within a day’s tides.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="tideschart.OrdinalNum.FIRST">
-<span class="sig-name descname"><span class="pre">FIRST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1st'</span></em><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tideschart.OrdinalNum.FIRST" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="GetTides.spiders.tideschart.OrdinalNum.FIRST">
+<span class="sig-name descname"><span class="pre">FIRST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1st'</span></em><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/GetTides/spiders/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GetTides.spiders.tideschart.OrdinalNum.FIRST" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="tideschart.OrdinalNum.FOURTH">
-<span class="sig-name descname"><span class="pre">FOURTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'4th'</span></em><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tideschart.OrdinalNum.FOURTH" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="GetTides.spiders.tideschart.OrdinalNum.FOURTH">
+<span class="sig-name descname"><span class="pre">FOURTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'4th'</span></em><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/GetTides/spiders/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GetTides.spiders.tideschart.OrdinalNum.FOURTH" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="tideschart.OrdinalNum.SECOND">
-<span class="sig-name descname"><span class="pre">SECOND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'2nd'</span></em><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tideschart.OrdinalNum.SECOND" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="GetTides.spiders.tideschart.OrdinalNum.SECOND">
+<span class="sig-name descname"><span class="pre">SECOND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'2nd'</span></em><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/GetTides/spiders/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GetTides.spiders.tideschart.OrdinalNum.SECOND" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="tideschart.OrdinalNum.THIRD">
-<span class="sig-name descname"><span class="pre">THIRD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'3rd'</span></em><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tideschart.OrdinalNum.THIRD" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="GetTides.spiders.tideschart.OrdinalNum.THIRD">
+<span class="sig-name descname"><span class="pre">THIRD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'3rd'</span></em><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/GetTides/spiders/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GetTides.spiders.tideschart.OrdinalNum.THIRD" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="tideschart.OrdinalNum.next">
-<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tideschart.OrdinalNum.next" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="GetTides.spiders.tideschart.OrdinalNum.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/GetTides/spiders/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GetTides.spiders.tideschart.OrdinalNum.next" title="Permalink to this definition"></a></dt>
 <dd><p>Return the enumeration representing the next ordinal number.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="tideschart.TideschartSpider">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tideschart.</span></span><span class="sig-name descname"><span class="pre">TideschartSpider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tideschart.TideschartSpider" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="GetTides.spiders.tideschart.TideschartSpider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GetTides.spiders.tideschart.</span></span><span class="sig-name descname"><span class="pre">TideschartSpider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/GetTides/spiders/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GetTides.spiders.tideschart.TideschartSpider" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
 <p>Scrapy Spider class implementing the tides chart spider.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="tideschart.TideschartSpider.allowed_domains">
-<span class="sig-name descname"><span class="pre">allowed_domains</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['tideschart.com']</span></em><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tideschart.TideschartSpider.allowed_domains" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="GetTides.spiders.tideschart.TideschartSpider.allowed_domains">
+<span class="sig-name descname"><span class="pre">allowed_domains</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['tideschart.com']</span></em><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/GetTides/spiders/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GetTides.spiders.tideschart.TideschartSpider.allowed_domains" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="tideschart.TideschartSpider.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tideschart'</span></em><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tideschart.TideschartSpider.name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="GetTides.spiders.tideschart.TideschartSpider.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tideschart'</span></em><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/GetTides/spiders/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GetTides.spiders.tideschart.TideschartSpider.name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="tideschart.TideschartSpider.parse">
-<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">scrapy.http.TextResponse</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tideschart.TideschartSpider.parse" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="GetTides.spiders.tideschart.TideschartSpider.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">scrapy.http.TextResponse</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/GetTides/spiders/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GetTides.spiders.tideschart.TideschartSpider.parse" title="Permalink to this definition"></a></dt>
 <dd><p>Override <code class="xref py py-meth docutils literal notranslate"><span class="pre">scrapy.Spider.parse()</span></code> accepting the scrapped webpage
 in response object (see
 <a class="reference external" href="https://docs.scrapy.org/en/latest/topics/request-response.html#response-subclasses">https://docs.scrapy.org/en/latest/topics/request-response.html#response-subclasses</a>)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="tideschart.TideschartSpider.start_requests">
-<span class="sig-name descname"><span class="pre">start_requests</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tideschart.TideschartSpider.start_requests" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="GetTides.spiders.tideschart.TideschartSpider.start_requests">
+<span class="sig-name descname"><span class="pre">start_requests</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/initialdev/GetTides/spiders/tideschart.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GetTides.spiders.tideschart.TideschartSpider.start_requests" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -143,14 +144,14 @@ in response object (see
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="tides2cal documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="add_cal_events.html" class="btn btn-neutral float-right" title="add_cal_events" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="add_cal_events.html" class="btn btn-neutral float-right" title="AddEvents.add_cal_events" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, Albo-code.
-      <span class="lastupdated">Last updated on Monday 20 Jun 2022 at 21:41:56.
+      <span class="lastupdated">Last updated on Wednesday 22 Jun 2022 at 20:42:34.
       </span></p>
   </div>
 
