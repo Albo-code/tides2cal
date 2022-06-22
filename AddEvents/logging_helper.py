@@ -1,7 +1,7 @@
 '''
 Helper functions to assit with use of the `Python logger`_.
 
-_`Python logger`: [https://docs.python.org/3/library/logging.html]
+.. _`Python logger`: https://docs.python.org/3/library/logging.html
 '''
 
 # Standard imports
