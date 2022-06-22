@@ -2,11 +2,17 @@
 Read JSON file produced by tideschart scrapper and create the Google calendar
 tide events.
 
-The Google calendar interfacing code is modified version of example from
+The Google calendar interfacing code is a modified version of example from
 https://developers.google.com/calendar/quickstart/python and uses the
 Google client library for Python. This is installed using pip::
 
-    pip install -U plac google-api-python-client google-auth-httplib2 google-auth-oauthlib
+    pip install -U plac google-api-python-client==2.51.0 google-auth-oauthlib==0.5.2
+
+**Before** the application can be executed a Google OAuth 2.0 Client ID must be
+created and stored in the file ``cal_creds.json``. For details about how a Client
+ID may be created see
+https://developers.google.com/workspace/guides/create-credentials#oauth-client-id;
+follow instructions for *application type* **Desktop app**.
 
 On first execution of this module you will be prompted to grant access to only
 calendars owned by you. The Google authentication *scope* used by the modules is::
