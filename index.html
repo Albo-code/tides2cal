@@ -74,18 +74,23 @@
 <p>Python module using web spider to scrape tidal data and add <em>high</em> and <em>low</em>
 tide events to a Google calendar.</p>
 <p>Web scraper uses the <a class="reference external" href="https://scrapy.org/">Scrapy</a> web scraping framework to get tidal data from
-<a class="reference external" href="https://www.tideschart.com/">www.tideschart.com</a>. Scrapped data is saved to a <cite>.json</cite> file and used to
+<a class="reference external" href="https://www.tideschart.com/">www.tideschart.com</a>. Scraped data is saved to a <cite>.json</cite> file and used to
 create Google calendar events for each <em>high</em> and <em>low</em> tide over the next
 7 days (number of days of tidal data avaiable on <a class="reference external" href="https://www.tideschart.com/">www.tideschart.com</a>).</p>
 </section>
 <section id="python-virtual-environment-creation">
 <h1>Python virtual environment creation<a class="headerlink" href="#python-virtual-environment-creation" title="Permalink to this heading"></a></h1>
-<p>To create a Python virtual environment containing all required packages,
-including those required to build documentation:</p>
+<p>To create a Python virtual environment containing packages required to run
+the Python scraper and build this documentation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">tides2cal_venv</span>
 <span class="n">source</span> <span class="n">tides2cal_venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">pip</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">pylint</span> <span class="n">Scrapy</span><span class="o">==</span><span class="mf">2.6.1</span> <span class="o">-</span><span class="n">U</span> <span class="n">sphinx</span> <span class="o">-</span><span class="n">U</span> <span class="n">sphinx_rtd_theme</span>
+</pre></div>
+</div>
+<p>To add packages necessary to run the Python code to add Google calendar events
+install the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">plac</span> <span class="n">google</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="n">client</span><span class="o">==</span><span class="mf">2.51.0</span> <span class="n">google</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">oauthlib</span><span class="o">==</span><span class="mf">0.5.2</span>
 </pre></div>
 </div>
 </section>
@@ -96,7 +101,7 @@ including those required to build documentation:</p>
 -a save_page=True
 </pre></div>
 </div>
-<p>Above stores scrapped data in .json file and also saves the <a class="reference external" href="https://www.tideschart.com/">www.tideschart.com</a>
+<p>Above stores scraped data in .json file and also saves the <a class="reference external" href="https://www.tideschart.com/">www.tideschart.com</a>
 web page the data was obtained from as the <code class="docutils literal notranslate"><span class="pre">-a</span> <span class="pre">save_page=True</span></code> option was
 specified.</p>
 <div class="toctree-wrapper compound">
@@ -131,7 +136,7 @@ specified.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, Albo-code.
-      <span class="lastupdated">Last updated on Wednesday 22 Jun 2022 at 20:42:34.
+      <span class="lastupdated">Last updated on Wednesday 22 Jun 2022 at 21:32:49.
       </span></p>
   </div>
 
