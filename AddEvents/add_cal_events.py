@@ -29,10 +29,10 @@ This is used to create the tide calendar event *description* entry. E.g::
           'meta_tide_location': 'Dalgety Bay Beach',
           'meta_scrape_time': '2021-06-10T21:36:02'}
 
-In indices ``[1]`` to ``[7]`` are dictionaries containing the the scrapped data
+In indices ``[1]`` to ``[7]`` are dictionaries containing the the scraped data
 of the tides for the next 7 days, i.e. index ``[1]`` will contain the tide
 informaiton for the day the data was scraped, index ``[7]`` for the 7th day from
-the day the data was scrapped. E.g.::
+the day the data was scraped. E.g.::
 
     [1]: {'date': '2021-06-10',
           'scrape_day': '<td class="day">10 Thu</td>',
@@ -298,7 +298,7 @@ def get_new_tide_events(scrape_meta: dict, tide_data: list) -> list:
     scrape_time_str = f"{scrape_datetime.strftime('%a %d %b %Y')} at " + \
                       f"{scrape_datetime.strftime('%H:%M')}"
     desc_text = f"<b>{tide_location}</b> tide event added by Tides2Cal on {desc_time_str}.<br>" +\
-                f"Tide data scrapped on {scrape_time_str} from {tide_url}"
+                f"Tide data scraped on {scrape_time_str} from {tide_url}"
 
     new_tide_events = []
     for tide in tide_data:

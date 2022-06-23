@@ -84,7 +84,7 @@ class TideschartSpider(scrapy.Spider):
 
     def parse(self, response: scrapy.http.TextResponse, **kwargs):
         '''
-        Override :meth:`scrapy.Spider.parse` accepting the scrapped webpage
+        Override :meth:`scrapy.Spider.parse` accepting the scraped webpage
         in response object (see
         https://docs.scrapy.org/en/latest/topics/request-response.html#response-subclasses)
         '''
@@ -98,7 +98,7 @@ class TideschartSpider(scrapy.Spider):
             'meta_scrape_time': scrape_time.strftime("%Y-%m-%dT%H:%M:%S")
         }
 
-        # tide_list is used to store a consequtive list of the scrapped tides
+        # tide_list is used to store a consequtive list of the scraped tides
         tide_list = []
 
         # Tides webpage contains tides for 7 days (day 1 is today)
@@ -135,7 +135,7 @@ class TideschartSpider(scrapy.Spider):
                 # Progress to next tide in the day
                 tide_num_in_day = tide_num_in_day.next()
 
-            # Add add all data for this day to scrapped data
+            # Add add all data for this day to scraped data
             yield {
                 'date': date_str,
                 'scrape_day': day_data,
@@ -149,10 +149,10 @@ class TideschartSpider(scrapy.Spider):
 
     def _save_webpage(self, scrape_time: datetime.datetime, response) -> None:
         '''
-        If user has requested the scrapped webpage to be saved to local file
+        If user has requested the scraped webpage to be saved to local file
         write body of response to file in `data` directory if this is present,
         otherwise in current directory. File name is created from name of tide
-        location and time page was scrapped.
+        location and time page was scraped.
 
         :param scrape_time: used to create filename
         :type scrape_time: str
@@ -173,7 +173,7 @@ class TideschartSpider(scrapy.Spider):
     def _get_day_data(scrape_time: datetime.datetime,
                       day_id: int, response) -> Tuple[str, str]:
         '''
-        From the scrapped webpage calculate the date information of the
+        From the scraped webpage calculate the date information of the
         requested day.
 
         :param scrape_time: used to calculate the date relating to `day_id`
@@ -183,7 +183,7 @@ class TideschartSpider(scrapy.Spider):
 
         :return: Tuple containing 2 items:
                     1. Date of tide in YYYY-MM-DD format
-                    2. Tides _day_ data as scrapped, e.g.:
+                    2. Tides _day_ data as scraped, e.g.:
                         "<td class=\"day\">29 Sat</td>"
         :rtype: (str, str)
         '''
