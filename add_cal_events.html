@@ -74,7 +74,7 @@
              
   <section id="module-AddEvents.add_cal_events">
 <span id="addevents-add-cal-events"></span><h1>AddEvents.add_cal_events<a class="headerlink" href="#module-AddEvents.add_cal_events" title="Permalink to this heading"></a></h1>
-<p>Read JSON file produced by tideschart scrapper and create the Google calendar
+<p>Read JSON file produced by tideschart scraper and create the Google calendar
 tide events.</p>
 <p>The Google calendar interfacing code is a modified version of example from
 <a class="reference external" href="https://developers.google.com/calendar/quickstart/python">https://developers.google.com/calendar/quickstart/python</a> and uses the
@@ -92,7 +92,7 @@ calendars owned by you. The Google authentication <em>scope</em> used by the mod
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">googleapis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">calendar</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">owned</span>
 </pre></div>
 </div>
-<p>The JSON file produced by the tideschart scrapper contains a list of dictionaries.</p>
+<p>The JSON file produced by the tideschart scraper contains a list of dictionaries.</p>
 <p>The dictionary in index <code class="docutils literal notranslate"><span class="pre">[0]</span></code> of the list contains meta data about the scrape.
 This is used to create the tide calendar event <em>description</em> entry. E.g:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="p">{</span><span class="s1">&#39;meta_tide_url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://tideschart.com/United-Kingdom/Scotland/</span>
@@ -137,7 +137,7 @@ tide calendar event. E.g.:</p>
 </div>
 <p>Only data from list indices <code class="docutils literal notranslate"><span class="pre">[0]</span></code> and <code class="docutils literal notranslate"><span class="pre">[8]</span></code> are used to create the Google
 calendar tide events.</p>
-<p>All expample data shown above read from a tideschart scrapper JSON file and
+<p>All expample data shown above read from a tideschart scraper JSON file and
 output when this module is called with <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">debug</span></code>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="AddEvents.add_cal_events.add_cal_tide_events">
@@ -306,7 +306,7 @@ will be logged.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, Albo-code.
-      <span class="lastupdated">Last updated on Thursday 23 Jun 2022 at 20:31:31.
+      <span class="lastupdated">Last updated on Thursday 23 Jun 2022 at 20:37:42.
       </span></p>
   </div>
 
