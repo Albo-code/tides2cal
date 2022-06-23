@@ -1,5 +1,5 @@
 '''
-Read JSON file produced by tideschart scrapper and create the Google calendar
+Read JSON file produced by tideschart scraper and create the Google calendar
 tide events.
 
 The Google calendar interfacing code is a modified version of example from
@@ -19,7 +19,7 @@ calendars owned by you. The Google authentication *scope* used by the modules is
 
     https://www.googleapis.com/auth/calendar.events.owned
 
-The JSON file produced by the tideschart scrapper contains a list of dictionaries.
+The JSON file produced by the tideschart scraper contains a list of dictionaries.
 
 The dictionary in index ``[0]`` of the list contains meta data about the scrape.
 This is used to create the tide calendar event *description* entry. E.g::
@@ -66,7 +66,7 @@ tide calendar event. E.g.::
 Only data from list indices ``[0]`` and ``[8]`` are used to create the Google
 calendar tide events.
 
-All expample data shown above read from a tideschart scrapper JSON file and
+All expample data shown above read from a tideschart scraper JSON file and
 output when this module is called with ``-l debug``.
 '''
 
@@ -368,7 +368,7 @@ def add_cal_tide_events(service: Resource, calendar_id: str, new_tide_events: li
 def main(cal_name: str='primary', token_json: str='cal_token.json',
          json_in: str='tides.json', read_only: bool=False, log: str='off'):
     '''
-    Read JSON file produced by scrapper containing tide data and create
+    Read JSON file produced by scraper containing tide data and create
     Google calendar tide events.
     '''
     log = setup_log(MY_LOGGER, log)
