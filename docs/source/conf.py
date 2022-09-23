@@ -85,7 +85,7 @@ autodoc_mock_imports = ['scrapy', 'plac', 'google',
 
 LINKCODE_REPO_URL = 'https://github.com/Albo-code/tides2cal/tree'
 # Update following to point to branch containing source that is to be linked to
-LINKCODE_REPO_BRANCH = 'initialdev'
+LINKCODE_REPO_BRANCH = 'main'
 
 def linkcode_resolve(domain, info):
     if domain != 'py':
