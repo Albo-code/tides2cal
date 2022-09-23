@@ -104,6 +104,25 @@ install the following:</p>
 <p>Above stores scraped data in .json file and also saves the <a class="reference external" href="https://www.tideschart.com/">www.tideschart.com</a>
 web page the data was obtained from as the <code class="docutils literal notranslate"><span class="pre">-a</span> <span class="pre">save_page=True</span></code> option was
 specified.</p>
+</section>
+<section id="add-tide-events-to-google-calendar">
+<h1>Add tide events to Google calendar<a class="headerlink" href="#add-tide-events-to-google-calendar" title="Permalink to this heading"></a></h1>
+<p>In active Python virtual environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">AddEvents</span><span class="o">/</span><span class="n">add_cal_events</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">path_to_auth_token</span><span class="o">&gt;.</span><span class="n">json</span> \
+<span class="o">-</span><span class="n">j</span> <span class="n">data</span><span class="o">/</span><span class="n">tides_</span><span class="o">&lt;</span><span class="n">timestamp</span><span class="o">&gt;.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Modify above to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-t</span></code> option: supply path to file containing user’s Google calendar access
+refresh tokens (file created automatically when the authorization flow
+and completes for the first time).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-j</span></code> option: provide name of file created by call to <code class="docutils literal notranslate"><span class="pre">scrapy</span> <span class="pre">crawl</span> <span class="pre">tideschart</span></code>,
+see above.</p></li>
+</ul>
+</div></blockquote>
+<p>For further information use the <code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code> option.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
@@ -136,7 +155,7 @@ specified.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, Albo-code.
-      <span class="lastupdated">Last updated on Saturday 20 Aug 2022 at 20:35:16.
+      <span class="lastupdated">Last updated on Friday 23 Sep 2022 at 20:31:35.
       </span></p>
   </div>
 

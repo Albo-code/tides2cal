@@ -41,6 +41,23 @@ Above stores scraped data in .json file and also saves the `www.tideschart.com`_
 web page the data was obtained from as the ``-a save_page=True`` option was
 specified.
 
+Add tide events to Google calendar
+===================================
+In active Python virtual environment::
+
+   python AddEvents/add_cal_events.py -t <path_to_auth_token>.json \
+   -j data/tides_<timestamp>.json
+
+Modify above to:
+
+ * ``-t`` option: supply path to file containing user's Google calendar access
+   refresh tokens (file created automatically when the authorization flow
+   and completes for the first time).
+ * ``-j`` option: provide name of file created by call to ``scrapy crawl tideschart``,
+   see above.
+
+For further information use the ``-h, --help`` option.
+
 .. toctree::
    :maxdepth: 2
    :caption: API:
