@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
 # For info about @v4 see https://stackoverflow.com/questions/75224429/github-actions-warning-about-set-output-but-not-using-it
     - name: Install Python
