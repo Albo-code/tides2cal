@@ -23,12 +23,12 @@ the Python scraper and build this documentation::
    python3 -m venv tides2cal_venv
    source tides2cal_venv/bin/activate
    pip install -U pip
-   pip install -U pylint Scrapy==2.6.1 -U sphinx -U sphinx_rtd_theme
+   pip install -U pylint -U Scrapy -U sphinx -U sphinx_rtd_theme
 
 To add packages necessary to run the Python code to add Google calendar events
 install the following::
 
-   pip install -U plac google-api-python-client==2.51.0 google-auth-oauthlib==0.5.2
+   pip install -U plac -U google-api-python-client -U google-auth-oauthlib
 
 Scrape tidal data
 =================

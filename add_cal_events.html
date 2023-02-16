@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AddEvents.add_cal_events &mdash; tides2cal 0.1 documentation</title>
@@ -12,11 +12,10 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -28,11 +27,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> tides2cal
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            tides2cal
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -41,9 +44,20 @@
               <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="tideschart.html">GetTides.spiders.tideschart</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">AddEvents.add_cal_events</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AddEvents.add_cal_events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#AddEvents.add_cal_events.add_cal_tide_events"><code class="docutils literal notranslate"><span class="pre">add_cal_tide_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#AddEvents.add_cal_events.do_google_credentials"><code class="docutils literal notranslate"><span class="pre">do_google_credentials()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#AddEvents.add_cal_events.get_cal_tide_times"><code class="docutils literal notranslate"><span class="pre">get_cal_tide_times()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#AddEvents.add_cal_events.get_new_tide_data"><code class="docutils literal notranslate"><span class="pre">get_new_tide_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#AddEvents.add_cal_events.get_new_tide_events"><code class="docutils literal notranslate"><span class="pre">get_new_tide_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#AddEvents.add_cal_events.rm_old_tides"><code class="docutils literal notranslate"><span class="pre">rm_old_tides()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="#addevents-helper-modules">AddEvents helper modules</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-AddEvents.logging_helper">AddEvents.logging_helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-AddEvents.logging_helper">AddEvents.logging_helper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#AddEvents.logging_helper.setup_log"><code class="docutils literal notranslate"><span class="pre">setup_log()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -61,8 +75,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>AddEvents.add_cal_events</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AddEvents.add_cal_events</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/add_cal_events.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -144,14 +158,14 @@ output when this module is called with <code class="docutils literal notranslate
 <span class="sig-prename descclassname"><span class="pre">AddEvents.add_cal_events.</span></span><span class="sig-name descname"><span class="pre">add_cal_tide_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">googleapiclient.discovery.Resource</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calendar_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_tide_events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/main/AddEvents/add_cal_events.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AddEvents.add_cal_events.add_cal_tide_events" title="Permalink to this definition"></a></dt>
 <dd><p>Add tide event to Google calendar if not already present in calendar.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>service</strong> (<em>Resource</em>) – The googleapiclient.discovery.Resource providing access to         user’s calendar.</p></li>
 <li><p><strong>calendar_id</strong> (<em>str</em>) – Google calendar id of calendar to retrieve tide time         events from.</p></li>
 <li><p><strong>new_tide_events</strong> (<em>list</em>) – List of new tide calendar events to be added to         the calendar.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -165,13 +179,13 @@ resource service used to access the calendar.
 If <code class="docutils literal notranslate"><span class="pre">token_json</span></code> does not exist or does not contain valid credentials a
 new window is opened prompting you to authorize access to your data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>token_json</strong> (<em>str</em>) – Name of file used to store or read from (if previously         created) the user’s access and refresh tokens.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>googleapiclient.discovery.Resource</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Resource</p>
 </dd>
 </dl>
@@ -184,17 +198,17 @@ new window is opened prompting you to authorize access to your data.</p>
 num_days from today and return list containing their start time, i.e.
 the ‘tide time’ of the event.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>service</strong> (<em>Resource</em>) – The googleapiclient.discovery.Resource providing access to         user’s calendar.</p></li>
 <li><p><strong>calendar_id</strong> (<em>str</em>) – Google calendar id of calendar to retrieve tide time         events from.</p></li>
 <li><p><strong>num_days</strong> (<em>int</em>) – The number of days to read searching for all tide events.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>List of current tide event start times as strings in Google event         data time format.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -206,16 +220,16 @@ the ‘tide time’ of the event.</p>
 <dd><p>Return list of tide data dictionaries containing tides not already in the
 calendar.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>tide_times_in_cal</strong> (<em>list</em>) – List of tide times already in caledar, list         contains only the start time of the calendar event.</p></li>
 <li><p><strong>tide_data</strong> (<em>list</em>) – List of dictionaries containing latest tide data.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>List of dictionaries containing data of new tides.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -227,16 +241,16 @@ calendar.</p>
 <dd><p>Return list of Google calendar events detailing new tide events to be added
 to the calender.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>scrape_meta</strong> (<em>dict</em>) – Meta data about the scrape added to event descriptions.</p></li>
 <li><p><strong>tide_data</strong> (<em>list</em>) – List of dictionaries containing tide data for which Google         calendar events are to be created.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>List of Google calendar events containing tides to be added to the         calendar.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -248,13 +262,13 @@ to the calender.</p>
 <dd><p>From tide_data remove all tides that are in the past in respect to time
 now.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>tide_data</strong> (<em>list</em>) – List containing all tide data.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>List of tide data containing only tides in the future.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -268,7 +282,7 @@ now.</p>
 <p>Helper functions to assit with use of the <a class="reference external" href="https://docs.python.org/3/library/logging.html">Python logger</a>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="AddEvents.logging_helper.setup_log">
-<span class="sig-prename descclassname"><span class="pre">AddEvents.logging_helper.</span></span><span class="sig-name descname"><span class="pre">setup_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'off'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/main/AddEvents/logging_helper.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AddEvents.logging_helper.setup_log" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">AddEvents.logging_helper.</span></span><span class="sig-name descname"><span class="pre">setup_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'off'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="reference external" href="https://github.com/Albo-code/tides2cal/tree/main/AddEvents/logging_helper.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#AddEvents.logging_helper.setup_log" title="Permalink to this definition"></a></dt>
 <dd><p>Create a Python logger using specified logger name and log level.</p>
 <p>The given <cite>logger_name</cite> is passed in call to <cite>logging.getLogger</cite>, as detailed
 in this function’s documentation:</p>
@@ -280,13 +294,13 @@ between different parts of an application.</em></p>
 <p>Note, even when level specified is <strong>off</strong> Python logs of type WARN and above
 will be logged.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>logger_name</strong> – identifiying name to be used for the logger</p></li>
 <li><p><strong>log</strong> – The log level to be used; one of ‘off’, ‘info’ or ‘debug’.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The created Python logger.</p>
 </dd>
 </dl>
@@ -306,7 +320,7 @@ will be logged.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022, Albo-code.
-      <span class="lastupdated">Last updated on Friday 23 Sep 2022 at 20:42:43.
+      <span class="lastupdated">Last updated on Thursday 16 Feb 2023 at 21:55:14.
       </span></p>
   </div>
 
